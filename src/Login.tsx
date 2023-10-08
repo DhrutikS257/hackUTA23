@@ -7,9 +7,22 @@ function Login() {
   const [email, setEmail] = createSignal("");
   const [password, setPassword] = createSignal("");
 
-  const handleLogin = (e: Event) => {
+  const handleLogin = async function(e: Event){
     e.preventDefault();
-    console.log(email() + ' ' + password());
+    
+    const response = await fetch("http://localhost:8080/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email(), password: password() }),
+    });
+  
+    if (response.status === 202) {
+      window.location.href = "/dashboard";
+    } else {
+      alert("Login failed");
+    }
   };
 
   return (

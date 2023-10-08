@@ -7,9 +7,24 @@ function Signup() {
   const [email, setEmail] = createSignal("");
   const [password, setPassword] = createSignal("");
   
-  const handleSignup = (e: Event) => {
+  const handleSignup = async function(e: Event){
     e.preventDefault();
-    console.log(email() + ' ' + password());
+    
+    const response = await fetch("http://localhost:8080/auth/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email(), password: password() }),
+    });
+  
+    if (response.status === 201) {
+      window.location.href = "/dashboard";
+    } else if (response.status === 409) {
+      alert("User exists");
+    } else {
+      alert("Server Error");
+    }
   };
 
   return (
