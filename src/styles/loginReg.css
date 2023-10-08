@@ -30,10 +30,7 @@ button {
   font-size: 1.5em;
   font-weight: 700;
   background-color: #16102d;
-}
-
-#signup-button {
-  height: 2em;
+  align-content: center;
 }
 
 .login-container {
@@ -45,7 +42,7 @@ button {
 
   background-color: rgba(178, 179, 191, 0.35);
   width: 25em;
-  min-height: 32em;
+  min-height: 34em;
   min-width: 1em;
   padding: 0% 3% 0% 3.5%;
   align-self: center;
@@ -61,5 +58,6 @@ button {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin: auto;
+  margin-top: auto;
+  margin-bottom: 3em;
 }
