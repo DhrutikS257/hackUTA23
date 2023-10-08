@@ -6,8 +6,6 @@ import { A } from '@solidjs/router';
 function Dashboard () {
   let dataAlerts = [["Bruh", "2am"],["Bruh", "2am"],["Bruh", "2am"],["Bruh", "2am"],["Bruh", "2am"]];
 
-
-
   return(
     <>
       <h1>Alert Log</h1>
