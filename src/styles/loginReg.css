@@ -1,0 +1,63 @@
+h1 {
+  margin-bottom: .5em;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 1.5em;
+  margin: 0.5em 0 0.2em 0.5em;
+}
+
+input {
+  color: #434d63;
+  background-color: #ffffff;
+  border-color: #00000026;
+  font-weight: 400;
+  font-size: 1.2em;
+  width: 90%;
+  min-height: 2em;
+  padding-left: 1em;
+  border-radius: 10px;
+  border: 1px solid;
+}
+
+button {
+  width: 50%;
+  height: 2.5em;
+  margin: 0.2em 0;
+  padding: 0;
+  border-radius: 10px;
+  font-size: 1.5em;
+  font-weight: 700;
+  background-color: #16102d;
+  align-content: center;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  flex-flow: column;
+  overflow: hidden;
+  border-radius: 34px;
+
+  background-color: rgba(178, 179, 191, 0.35);
+  width: 25em;
+  min-height: 34em;
+  min-width: 1em;
+  padding: 0% 3% 0% 3.5%;
+  align-self: center;
+}
+
+.field-description {
+  text-align: left;
+}
+
+.button-container {
+  display: flex;
+  flex-flow: column;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 3em;
+}
