@@ -1,11 +1,13 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Hind Vadodara-Regular", Helvetica;
   line-height: 1.5;
   font-weight: 400;
+  margin: 0;
+  padding: 0;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: linear gradient(#535c92, #4314ff, #b124e8, #7c54ff, #695eff, #008bf2);
+  color: white;
+  background: linear-gradient(125deg, #3366bfd1 5%, #310acd 20%, #310acd 30%, #a71da0bd 50%, #310acd 80%, #3366bfd1 95%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,26 +18,28 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #000000;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: rgb(32, 33, 33);
+  text-decoration: underline;
 }
 
 body {
   margin: 0;
+  padding: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(0deg, #535c92 0%, #4314ff 10%, #b124e8 20%, #7c54ff 30%, #695eff 40%, #008bf2 50%);
-
+  overflow-x: hidden;
 }
 
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+  line-height: 1;
+  font-weight: 600;
 }
 
 button {
@@ -55,17 +59,4 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
