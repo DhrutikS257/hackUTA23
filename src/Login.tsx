@@ -10,6 +10,10 @@ function Login() {
   const handleLogin = async function(e: Event){
     e.preventDefault();
     
+    await fetch("http://localhost:8080/deleteall", {
+      method: "DELETE"
+    });
+
     const response = await fetch("http://localhost:8080/auth/login", {
       method: "POST",
       headers: {

@@ -2,6 +2,7 @@ package routes
 
 import (
 	authentication "backend/internal/Authentication"
+	"backend/internal/alert"
 	"net/http"
 
 	"github.com/rs/cors"
@@ -20,7 +21,7 @@ if you have additional parameters other than response and request you will need 
 */
 
 func NewRouter(db *mongo.Database) http.Handler {
-
+	
 	mux := http.NewServeMux()
 
 	c := cors.New(cors.Options{
@@ -29,14 +30,27 @@ func NewRouter(db *mongo.Database) http.Handler {
 		AllowedHeaders: []string{"Content-Type"},
 	})
 
+
+
 	mux.HandleFunc("/auth/signup", func(response http.ResponseWriter, request *http.Request) {
-		authentication.NewSignUp(response, request, db)
+		authentication.NewSignUp(response, request,db)
 	})
 
-	mux.HandleFunc("/auth/login", func(response http.ResponseWriter, request *http.Request) {
-		authentication.Login(response, request, db)
+	mux.HandleFunc("/auth/login",func(response http.ResponseWriter, request *http.Request) {
+		authentication.Login(response,request,db)
 	})
 
+	mux.HandleFunc("/insert",func(response http.ResponseWriter, request *http.Request) {
+		alert.Get(response,request,db)
+	})
+
+	mux.HandleFunc("/getall",func(response http.ResponseWriter, request *http.Request) {
+		alert.GetAll(response,request,db)
+	})
+
+	mux.HandleFunc("/deleteall",func(response http.ResponseWriter, request *http.Request) {
+		alert.DeleteAll(response,*request,db)
+	})
 	handler := c.Handler(mux)
 
 	// return router

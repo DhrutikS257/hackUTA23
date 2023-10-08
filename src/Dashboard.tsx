@@ -31,7 +31,9 @@ function Dashboard () {
       <h1>Alert Log</h1>
       <section class="alert-log-container">
         <For each={data()}>{(dataAlert, i) =>
-          <p class="alert-information">{dataAlert[1]}{dataAlert[2]}</p>
+          <p class="alert-information">
+            {dataAlert.Alert + " : " + dataAlert.Time}
+          </p>
         }</For>
       </section>
       <A href="/" style="margin-top: 1em">Sign Out</A>

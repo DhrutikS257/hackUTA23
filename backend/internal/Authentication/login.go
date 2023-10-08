@@ -1,8 +1,10 @@
 package authentication
 
 import (
+	"backend/internal/alert"
 	"encoding/json"
 	"net/http"
+
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -16,6 +18,9 @@ func Login(response http.ResponseWriter, request *http.Request,db *mongo.Databas
 		response.Write([]byte("Error Decoding Json"))
 		return
 	}
+	sendEmail := make(chan bool)
+	go alert.Send(user.Email,"THREAT",sendEmail)
+
 	// checkPassword := make(chan bool)
 	password := GetUser(user,db)
 	if  password == ""{
@@ -23,12 +28,17 @@ func Login(response http.ResponseWriter, request *http.Request,db *mongo.Databas
 		return
 	}
 	matchPassword := VerifyPassword([]byte(password),[]byte(user.Password))
-	if matchPassword {
-		response.WriteHeader(http.StatusAccepted)
-		return
+	emailSent := <- sendEmail
+	if emailSent {
+		if matchPassword {
+			response.WriteHeader(http.StatusAccepted)
+			return
+		} else {
+			response.WriteHeader(http.StatusNotFound)
+			return
+		}
 	} else {
-		response.WriteHeader(http.StatusNotFound)
+		response.WriteHeader(http.StatusInternalServerError)
 		return
 	}
-	
 }
