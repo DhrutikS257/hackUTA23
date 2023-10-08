@@ -2,6 +2,8 @@
   font-family: "Hind Vadodara-Regular", Helvetica;
   line-height: 1.5;
   font-weight: 400;
+  margin: 0;
+  padding: 0;
 
   color-scheme: light dark;
   color: white;
@@ -20,16 +22,18 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: rgb(57, 59, 59);
+  color: rgb(32, 33, 33);
   text-decoration: underline;
 }
 
 body {
   margin: 0;
+  padding: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1 {
