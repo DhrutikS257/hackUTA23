@@ -34,7 +34,7 @@ function Signup() {
   return (
     <>
       <form class="login-container" onSubmit={handleSignup}>
-        <h1>HackUTA23</h1>
+        <h1>SecureBase</h1>
         <h3 class="field-description">Email</h3>
         <input type="text" placeholder="example@email.com" value={email()} onInput={(e) => setEmail(e.target.value)}/>
         <h3 class="field-description">Password</h3>

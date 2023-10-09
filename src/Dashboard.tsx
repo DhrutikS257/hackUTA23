@@ -19,7 +19,7 @@ function Dashboard () {
     const intervalID = setInterval(() =>
     {
       fetchData();
-    }, 5000);
+    }, 2500);
 
     return () => {
       clearInterval(intervalID);
